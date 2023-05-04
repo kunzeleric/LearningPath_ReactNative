@@ -4,15 +4,15 @@ import { Picker } from '@react-native-picker/picker';
 import Slider from '@react-native-community/slider';
 
 /*
-BANCO Sujeito:
+A Bank needs your information in order to get your subscription.
 
-1 - Nome (TextInput) OK
-2 - Idade (TextInput) OK
-3 - Sexo( Picker) OK
-4 - Seu limite (Slider)OK
-5 - Estudante (Switch)
-Botão > abrir conta > mostrar os dados em alert ou no console
+1 - Name (TextInput) 
+2 - Age (TextInput) 
+3 - Sex( Picker) 
+4 - Cash Limit (Slider)
+5 - Student? (Switch)
 
+Create a button and make sure to display the results, either with alert or console log.
 */
 export default function App() {
   const [name, setName] = useState('');
