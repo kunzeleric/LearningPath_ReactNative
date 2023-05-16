@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, Switch, TextInput, ScrollView } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Switch,
+  TextInput,
+  ScrollView,
+} from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 import Slider from '@react-native-community/slider';
 
 /*
 A Bank needs your information in order to get your subscription.
 
-1 - Name (TextInput) 
-2 - Age (TextInput) 
-3 - Sex( Picker) 
+1 - Name (TextInput)
+2 - Age (TextInput)
+3 - Sex( Picker)
 4 - Cash Limit (Slider)
 5 - Student? (Switch)
 
@@ -20,21 +28,24 @@ export default function App() {
   const [sex, setSex] = useState(0);
   const [sexOptions, setSexOptions] = useState([
     {
-      key: 1, name: 'Male'
+      key: 1,
+      name: 'Male',
     },
     {
-      key: 2, name: 'Female'
+      key: 2,
+      name: 'Female',
     },
     {
-      key: 3, name: 'I would rather not say'
-    }
-  ])
+      key: 3,
+      name: 'I would rather not say',
+    },
+  ]);
   const [limit, setLimit] = useState(0);
   const [isStudent, setIsStudent] = useState(false);
 
   const optionsSex = sexOptions.map((value, key) => {
-    return <Picker.Item key={key} value={key} label={value.name} />
-  })
+    return <Picker.Item key={key} value={key} label={value.name} />;
+  });
 
   const handleSubmit = () => {
     alert(`
@@ -45,32 +56,33 @@ export default function App() {
     Limit: ${limit}
     Student: ${isStudent}
     
-    `)
-  }
+    `);
+  };
 
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.headerTitle}>Welcome to the Bank! Please subscribe below.</Text>
+        <Text style={styles.headerTitle}>
+          Welcome to the Bank! Please subscribe below.
+        </Text>
 
         <View style={styles.container}>
           <Text style={styles.textLabel}>Name</Text>
           <TextInput
             style={styles.textInput}
-            placeholder='Type your name here'
+            placeholder="Type your name here"
             value={name}
-            onChangeText={(name) => setName(name)}
+            onChangeText={name => setName(name)}
           />
-
         </View>
 
         <View style={styles.container}>
           <Text style={styles.textLabel}>Age</Text>
           <TextInput
             style={styles.textInput}
-            placeholder='Type your age here'
+            placeholder="Type your age here"
             value={age}
-            onChangeText={(age) => setAge(age)}
+            onChangeText={age => setAge(age)}
           />
         </View>
 
@@ -78,8 +90,7 @@ export default function App() {
           <Text style={styles.textLabel}>Sex</Text>
           <Picker
             selectedValue={sex}
-            onValueChange={(itemSelected) => setSex(itemSelected)}
-          >
+            onValueChange={itemSelected => setSex(itemSelected)}>
             {optionsSex}
           </Picker>
         </View>
@@ -91,33 +102,32 @@ export default function App() {
             maximumValue={10000}
             step={1000}
             value={limit}
-            onValueChange={(newLimit) => setLimit(newLimit)}
-            thumbTintColor='green'
-            minimumTrackTintColor='green'
+            onValueChange={newLimit => setLimit(newLimit)}
+            thumbTintColor="green"
+            minimumTrackTintColor="green"
             style={{width: 300}}
           />
-          <Text style={styles.sliderInfo}>{limit.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Text>
+          <Text style={styles.sliderInfo}>
+            {limit.toLocaleString('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            })}
+          </Text>
         </View>
 
         <View style={styles.container}>
           <Text style={styles.textLabel}>Are you a student?</Text>
           <Switch
             value={isStudent}
-            onValueChange={(selectedValue) => setIsStudent(selectedValue)}
+            onValueChange={selectedValue => setIsStudent(selectedValue)}
             thumbColor={isStudent ? 'green' : 'red'}
           />
         </View>
 
-      <Button 
-      title={'Submit'}
-      color={'green'}
-      onPress={handleSubmit}
-      />
+        <Button title={'Submit'} color={'green'} onPress={handleSubmit} />
       </View>
     </ScrollView>
-
-
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -148,12 +158,9 @@ const styles = StyleSheet.create({
   sliderInfo: {
     fontSize: 15,
     color: 'green',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   pickerContainer: {
     width: 300,
-  }
-
-
+  },
 });
-

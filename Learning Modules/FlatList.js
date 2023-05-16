@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import Usuario from './src/Usuario';
 
 /*
@@ -10,33 +10,31 @@ Usuario > via props => nome, cargo
 
 */
 
-
 export default function App() {
   const [listaUsuarios, setListaUsuarios] = useState([
-    { id: 1, nome: 'Eric', cargo: 'Desenvolvedor Front-end' },
-    { id: 2, nome: 'Henrique', cargo: 'Desenvolvedor Full-stack' },
-    { id: 3, nome: 'Gui', cargo: 'Desenvolvedor Full-stack' },
-    { id: 4, nome: 'Xapa', cargo: 'Desenvolvedor Front-end' },
-    { id: 5, nome: 'Zoboo', cargo: 'Desenvolvedor Back-end' },
-  ])
+    {id: 1, nome: 'Eric', cargo: 'Desenvolvedor Front-end'},
+    {id: 2, nome: 'Henrique', cargo: 'Desenvolvedor Full-stack'},
+    {id: 3, nome: 'Gui', cargo: 'Desenvolvedor Full-stack'},
+    {id: 4, nome: 'Xapa', cargo: 'Desenvolvedor Front-end'},
+    {id: 5, nome: 'Zoboo', cargo: 'Desenvolvedor Back-end'},
+  ]);
 
   return (
-    <View style={styles.container} >
+    <View style={styles.container}>
       <Text style={styles.titulo}>Seja bem-vindo!</Text>
 
       <FlatList
-      data ={listaUsuarios}
-      renderItem={({ item }) => <Usuario data={item}/>}
+        data={listaUsuarios}
+        renderItem={({item}) => <Usuario data={item} />}
       />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 25,
-    
   },
   titulo: {
     fontSize: 20,
@@ -45,8 +43,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontStyle: 'italic',
     fontWeight: 'bold',
-
-  }
-
+  },
 });
-

@@ -1,5 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, Switch, TextInput, ScrollView, FlatList } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Switch,
+  TextInput,
+  ScrollView,
+  FlatList,
+} from 'react-native';
 import Header from './src/components/Header';
 import List from './src/components/List';
 /*
@@ -9,7 +18,6 @@ INTERFACE INSTAGRAM
 */
 
 export default function App() {
-
   const [feed, setFeed] = useState([
     {
       id: '1',
@@ -18,7 +26,7 @@ export default function App() {
       imgperfil: 'https://sujeitoprogramador.com/instareact/fotoPerfil1.png',
       imgPublicacao: 'https://sujeitoprogramador.com/instareact/foto1.png',
       likeada: true,
-      likers: 1
+      likers: 1,
     },
     {
       id: '2',
@@ -27,16 +35,17 @@ export default function App() {
       imgperfil: 'https://sujeitoprogramador.com/instareact/fotoPerfil2.png',
       imgPublicacao: 'https://sujeitoprogramador.com/instareact/foto2.png',
       likeada: false,
-      likers: 0
+      likers: 0,
     },
     {
       id: '3',
       nome: 'Jose Augusto',
-      descricao: 'Bora trabalhar, hoje estou começando em um projeto novo aqui no sujeito, desde o backend ao frontend',
+      descricao:
+        'Bora trabalhar, hoje estou começando em um projeto novo aqui no sujeito, desde o backend ao frontend',
       imgperfil: 'https://sujeitoprogramador.com/instareact/fotoPerfil3.png',
       imgPublicacao: 'https://sujeitoprogramador.com/instareact/foto3.png',
       likeada: false,
-      likers: 3
+      likers: 3,
     },
     {
       id: '4',
@@ -45,7 +54,7 @@ export default function App() {
       imgperfil: 'https://sujeitoprogramador.com/instareact/fotoPerfil1.png',
       imgPublicacao: 'https://sujeitoprogramador.com/instareact/foto4.png',
       likeada: false,
-      likers: 1
+      likers: 1,
     },
     {
       id: '5',
@@ -54,8 +63,8 @@ export default function App() {
       imgperfil: 'https://sujeitoprogramador.com/instareact/fotoPerfil2.png',
       imgPublicacao: 'https://sujeitoprogramador.com/instareact/foto5.png',
       likeada: false,
-      likers: 32
-    }
+      likers: 32,
+    },
   ]);
 
   return (
@@ -64,21 +73,16 @@ export default function App() {
 
       <FlatList
         data={feed}
-        renderItem={({ item }) => <List data={item} />}
+        renderItem={({item}) => <List data={item} />}
         showsVerticalScrollIndicator={false}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
       />
-
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
-
-
 });
-
